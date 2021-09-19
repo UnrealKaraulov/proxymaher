@@ -1,0 +1,23 @@
+#include "stdafx.h"
+#include <windows.h>
+#include <stdio.h>
+#include <tchar.h>
+#pragma pack(1)
+
+##ph1##
+
+extern "C" BOOL WINAPI DllMain(HINSTANCE hInst,DWORD reason,LPVOID)
+{
+	static HINSTANCE hL;
+	if (reason == DLL_PROCESS_ATTACH)
+	{
+		hL = LoadLibrary(_T(".\\##ph2##.dll"));
+		if (!hL) return false;
+##ph3##		MessageBox(NULL, _T("Hello World"), _T("Hi"), NULL);
+	}
+	if (reason == DLL_PROCESS_DETACH)
+		FreeLibrary(hL);
+	return TRUE;
+}
+
+##ph4##

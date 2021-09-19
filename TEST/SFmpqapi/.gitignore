@@ -1,0 +1,10 @@
+*Debug/
+*Release/
+.directory
+*.depend
+*.layout
+*.ncb
+*.opt
+*.plg
+*.suo
+*.user
